@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="goldportalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatgCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="CatgDesc" Type="nvarchar" MaxLength="64" />
+          <Property Name="DeptDID" Type="int" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DID" />
+          </Key>
+          <Property Name="DID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Deptcode" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PartyMaster">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartyCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="PartyName" Type="nvarchar" MaxLength="64" />
+          <Property Name="ConactPerson" Type="nvarchar" MaxLength="64" />
+          <Property Name="PartyAdd1" Type="nvarchar" MaxLength="64" />
+          <Property Name="PartyAdd2" Type="nvarchar" MaxLength="64" />
+          <Property Name="PartyAdd3" Type="nvarchar" MaxLength="64" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="16" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="16" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdCode" Type="varchar" MaxLength="8" />
+          <Property Name="ProdDesc" Type="varchar" MaxLength="64" />
+          <Property Name="CatID" Type="int" />
+          <Property Name="ProdType" Type="varchar" MaxLength="32" />
+          <Property Name="RawMaterial" Type="varchar" MaxLength="32" />
+          <Property Name="Wastage" Type="int" />
+          <Property Name="EmbededWithStones" Type="bit" />
+          <Property Name="NoOfPieces" Type="int" />
+          <Property Name="WeightPerPiece" Type="int" />
+          <Property Name="PurchasePerPiece" Type="int" />
+          <Property Name="MakingCharge" Type="varchar" MaxLength="8" />
+          <Property Name="Directbilling" Type="bit" />
+          <Property Name="PerPiecePrice" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductDescription">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PDesc" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="SalesMan">
+          <Key>
+            <PropertyRef Name="SMID" />
+          </Key>
+          <Property Name="SMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SMCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="SMName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SectionMaster">
+          <Key>
+            <PropertyRef Name="SecID" />
+          </Key>
+          <Property Name="SecID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SectionCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="SectionName" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="WorkerMaster">
+          <Key>
+            <PropertyRef Name="WID" />
+          </Key>
+          <Property Name="WID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="WorkerName" Type="nvarchar" MaxLength="64" />
+          <Property Name="ConactPerson" Type="nvarchar" MaxLength="64" />
+          <Property Name="WorkerAdd1" Type="nvarchar" MaxLength="64" />
+          <Property Name="WorkerAdd2" Type="nvarchar" MaxLength="64" />
+          <Property Name="WorkerAdd3" Type="nvarchar" MaxLength="64" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="16" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="16" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="64" />
+          <Property Name="JoiningDate" Type="datetime" />
+          <Property Name="Working" Type="nvarchar" MaxLength="2" />
+          <Property Name="SectionCode" Type="nvarchar" MaxLength="8" />
+        </EntityType>
+        <EntityContainer Name="goldportalModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartyMaster" EntityType="Self.PartyMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDescription" EntityType="Self.ProductDescription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesMan" EntityType="Self.SalesMan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SectionMaster" EntityType="Self.SectionMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkerMaster" EntityType="Self.WorkerMaster" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="goldportalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="goldportalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="goldportalModel.Department" />
+          <EntitySet Name="PartyMasters" EntityType="goldportalModel.PartyMaster" />
+          <EntitySet Name="SectionMasters" EntityType="goldportalModel.SectionMaster" />
+          <EntitySet Name="WorkerMasters" EntityType="goldportalModel.WorkerMaster" />
+          <EntitySet Name="SalesMen" EntityType="goldportalModel.SalesMan" />
+          <EntitySet Name="ProductDescriptions" EntityType="goldportalModel.ProductDescription" />
+          <EntitySet Name="Products" EntityType="goldportalModel.Product" />
+          <EntitySet Name="Categories" EntityType="goldportalModel.Category" />
+        </EntityContainer>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DID" />
+          </Key>
+          <Property Name="DID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Deptcode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PartyMaster">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartyCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PartyName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ConactPerson" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PartyAdd1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PartyAdd2" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PartyAdd3" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SectionMaster">
+          <Key>
+            <PropertyRef Name="SecID" />
+          </Key>
+          <Property Name="SecID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionCode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="SectionName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WorkerMaster">
+          <Key>
+            <PropertyRef Name="WID" />
+          </Key>
+          <Property Name="WID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ConactPerson" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerAdd1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerAdd2" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerAdd3" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+          <Property Name="Working" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SectionCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SalesMan">
+          <Key>
+            <PropertyRef Name="SMID" />
+          </Key>
+          <Property Name="SMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SMCode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="SMName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductDescription">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ProdDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CatID" Type="Int32" />
+          <Property Name="ProdType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="RawMaterial" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Wastage" Type="Int32" />
+          <Property Name="EmbededWithStones" Type="Boolean" />
+          <Property Name="NoOfPieces" Type="Int32" />
+          <Property Name="WeightPerPiece" Type="Int32" />
+          <Property Name="PurchasePerPiece" Type="Int32" />
+          <Property Name="MakingCharge" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Directbilling" Type="Boolean" />
+          <Property Name="PerPiecePrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatgCode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="CatgDesc" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="DeptDID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="goldportalModelStoreContainer" CdmEntityContainer="goldportalEntities">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="goldportalModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="Deptcode" ColumnName="Deptcode" />
+                <ScalarProperty Name="DID" ColumnName="DID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartyMasters">
+            <EntityTypeMapping TypeName="goldportalModel.PartyMaster">
+              <MappingFragment StoreEntitySet="PartyMaster">
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="PartyAdd3" ColumnName="PartyAdd3" />
+                <ScalarProperty Name="PartyAdd2" ColumnName="PartyAdd2" />
+                <ScalarProperty Name="PartyAdd1" ColumnName="PartyAdd1" />
+                <ScalarProperty Name="ConactPerson" ColumnName="ConactPerson" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="PartyCode" ColumnName="PartyCode" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SectionMasters">
+            <EntityTypeMapping TypeName="goldportalModel.SectionMaster">
+              <MappingFragment StoreEntitySet="SectionMaster">
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="SectionCode" ColumnName="SectionCode" />
+                <ScalarProperty Name="SecID" ColumnName="SecID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkerMasters">
+            <EntityTypeMapping TypeName="goldportalModel.WorkerMaster">
+              <MappingFragment StoreEntitySet="WorkerMaster">
+                <ScalarProperty Name="SectionCode" ColumnName="SectionCode" />
+                <ScalarProperty Name="Working" ColumnName="Working" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="WorkerAdd3" ColumnName="WorkerAdd3" />
+                <ScalarProperty Name="WorkerAdd2" ColumnName="WorkerAdd2" />
+                <ScalarProperty Name="WorkerAdd1" ColumnName="WorkerAdd1" />
+                <ScalarProperty Name="ConactPerson" ColumnName="ConactPerson" />
+                <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+                <ScalarProperty Name="WorkerCode" ColumnName="WorkerCode" />
+                <ScalarProperty Name="WID" ColumnName="WID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesMen">
+            <EntityTypeMapping TypeName="goldportalModel.SalesMan">
+              <MappingFragment StoreEntitySet="SalesMan">
+                <ScalarProperty Name="SMName" ColumnName="SMName" />
+                <ScalarProperty Name="SMCode" ColumnName="SMCode" />
+                <ScalarProperty Name="SMID" ColumnName="SMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDescriptions">
+            <EntityTypeMapping TypeName="goldportalModel.ProductDescription">
+              <MappingFragment StoreEntitySet="ProductDescription">
+                <ScalarProperty Name="PDesc" ColumnName="PDesc" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="goldportalModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="PerPiecePrice" ColumnName="PerPiecePrice" />
+                <ScalarProperty Name="Directbilling" ColumnName="Directbilling" />
+                <ScalarProperty Name="MakingCharge" ColumnName="MakingCharge" />
+                <ScalarProperty Name="PurchasePerPiece" ColumnName="PurchasePerPiece" />
+                <ScalarProperty Name="WeightPerPiece" ColumnName="WeightPerPiece" />
+                <ScalarProperty Name="NoOfPieces" ColumnName="NoOfPieces" />
+                <ScalarProperty Name="EmbededWithStones" ColumnName="EmbededWithStones" />
+                <ScalarProperty Name="Wastage" ColumnName="Wastage" />
+                <ScalarProperty Name="RawMaterial" ColumnName="RawMaterial" />
+                <ScalarProperty Name="ProdType" ColumnName="ProdType" />
+                <ScalarProperty Name="CatID" ColumnName="CatID" />
+                <ScalarProperty Name="ProdDesc" ColumnName="ProdDesc" />
+                <ScalarProperty Name="ProdCode" ColumnName="ProdCode" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="goldportalModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="DeptDID" ColumnName="DeptDID" />
+                <ScalarProperty Name="CatgDesc" ColumnName="CatgDesc" />
+                <ScalarProperty Name="CatgCode" ColumnName="CatgCode" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

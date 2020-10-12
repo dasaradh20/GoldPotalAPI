@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4fd18fb695e14b248d63aced900d5f82" Name="Diagram1">
+        <EntityTypeShape EntityType="goldportalModel.Department" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="goldportalModel.PartyMaster" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="goldportalModel.SectionMaster" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="goldportalModel.WorkerMaster" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="goldportalModel.SalesMan" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="goldportalModel.ProductDescription" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="goldportalModel.Product" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="goldportalModel.Category" Width="1.5" PointX="7.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

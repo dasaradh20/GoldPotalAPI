@@ -1,0 +1,4 @@
+﻿An item with the same key has already been added.
+Generated model file: GoldPortalEntities.edmx.
+Loading metadata from the database took 00:00:00.6709553.
+Generating the model took 00:00:01.9686470.
